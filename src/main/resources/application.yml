@@ -1,0 +1,9 @@
+zookeeper:
+  curator:
+    ip: 192.168.2.26:2181
+    namespace: demo
+    connectionTimeoutMs: 50000
+    maxRetries: 3
+    sessionTimeOut: 50000
+    sleepMsBetweenRetry: 1000
+
