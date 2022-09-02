@@ -1,4 +1,4 @@
-package cn.shh.test.zk.watch;
+package cn.shh.test.zk.common.watcher;
 
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.recipes.cache.*;

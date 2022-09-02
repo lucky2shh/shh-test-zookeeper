@@ -1,6 +1,6 @@
 package cn.shh.test.zk.controller;
 
-import cn.shh.test.zk.conf.ZKProperties;
+import cn.shh.test.zk.common.config.ZKProperties;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.api.BackgroundCallback;
@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 
 @RestController
 @RequestMapping("/zk/curator")
-public class CuratorController {
+public class CuratorFrameworkController {
     @Autowired
     private CuratorFramework curatorFramework;
     @Autowired

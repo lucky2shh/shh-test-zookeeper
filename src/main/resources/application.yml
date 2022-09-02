@@ -1,9 +1,12 @@
-zookeeper:
-  curator:
-    ip: 192.168.2.26:2181
-    namespace: demo
-    connectionTimeoutMs: 50000
-    maxRetries: 3
-    sessionTimeOut: 50000
-    sleepMsBetweenRetry: 1000
+server:
+  port: 8090
 
+zookeeper:
+  enabled: true
+  connectString: 192.168.2.26:2181      #服务器地址
+  namespace: test         #命名空间，被称为ZNode
+  digest: smile:123456          #权限控制，加密
+  sessionTimeoutMs: 100000      #会话超时时间
+  connectionTimeoutMs: 60000    #连接超时时间
+  maxRetries: 2                 #最大重试次数
+  baseSleepTimeMs: 1000          #初始休眠时间

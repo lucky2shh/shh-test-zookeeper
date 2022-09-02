@@ -1,6 +1,6 @@
 package cn.shh.test.zk;
 
-import cn.shh.test.zk.controller.CuratorController;
+import cn.shh.test.zk.controller.CuratorFrameworkController;
 import com.alibaba.fastjson.JSONObject;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,32 +11,32 @@ import java.util.Map;
 @SpringBootTest
 public class CuratorFrameworkTest {
     @Autowired
-    private CuratorController curatorController;
+    private CuratorFrameworkController curatorFrameworkController;
 
     @Test
     public void m1(){
-        System.out.println(curatorController);
+        System.out.println(curatorFrameworkController);
     }
 
     @Test
     public void createZnode(){
-        System.out.println(curatorController.createZnode("/test-curator", "test"));
+        System.out.println(curatorFrameworkController.createZnode("/test-curator", "test"));
     }
 
     @Test
     public void createAsyncZnode(){
-        System.out.println(curatorController.createAsyncZnode("/async-node", "data1"));
+        System.out.println(curatorFrameworkController.createAsyncZnode("/async-node", "data1"));
     }
 
     @Test
     public void selectZnode(){
-        JSONObject jsonObject = curatorController.selectZnode("/test-curator");
+        JSONObject jsonObject = curatorFrameworkController.selectZnode("/test-curator");
         System.out.println(jsonObject.toJSONString());
     }
 
     @Test
     public void selectChildrenZnode(){
-        Map<String, String> znodes = curatorController.selectChildrenZnode("/test-curator");
+        Map<String, String> znodes = curatorFrameworkController.selectChildrenZnode("/test-curator");
         znodes.forEach((k, v) -> {
             System.out.println("k/v: " + k + "/" + v);
         });
@@ -44,25 +44,25 @@ public class CuratorFrameworkTest {
 
     @Test
     public void setdata(){
-        JSONObject jo = curatorController.setData("/test-curator", "data1", 1);
+        JSONObject jo = curatorFrameworkController.setData("/test-curator", "data1", 1);
         System.out.println(jo.toJSONString());
     }
 
     @Test
     public void delete(){
-        JSONObject jo = curatorController.delete("/test-curator", 1, 0);
+        JSONObject jo = curatorFrameworkController.delete("/test-curator", 1, 0);
         System.out.println(jo.toJSONString());
     }
 
     @Test
     public void transactionDisabled(){
-        String res = curatorController.transactionDisabled("/test-curator", "data1", "async-node", "data1");
+        String res = curatorFrameworkController.transactionDisabled("/test-curator", "data1", "async-node", "data1");
         System.out.println(res);
     }
 
     @Test
     public void transactionEnabled(){
-        String res = curatorController.transactionEnabled("/test-curator", "data1", "async-node", "data1");
+        String res = curatorFrameworkController.transactionEnabled("/test-curator", "data1", "async-node", "data1");
         System.out.println(res);
     }
 
@@ -70,7 +70,7 @@ public class CuratorFrameworkTest {
     public void lock(){
         String res = null;
         try {
-            res = curatorController.lock();
+            res = curatorFrameworkController.lock();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -81,7 +81,7 @@ public class CuratorFrameworkTest {
     public void wlock(){
         String res = null;
         try {
-            res = curatorController.wlock();
+            res = curatorFrameworkController.wlock();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -92,7 +92,7 @@ public class CuratorFrameworkTest {
     public void rlock(){
         String res = null;
         try {
-            res = curatorController.rlock();
+            res = curatorFrameworkController.rlock();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
